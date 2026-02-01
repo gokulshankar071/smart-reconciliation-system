@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "e1a12d4d-06ff-430f-956b-3c86336f0207",
+		"name": "Smart Reconciliation APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47774806",
+		"_collection_link": "https://gokulshankar071-7846646.postman.co/workspace/Gokul~deed2d4b-922c-4a5d-9f0d-1a063329be48/collection/47774806-e1a12d4d-06ff-430f-956b-3c86336f0207?action=share&source=collection_link&creator=47774806"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const json = pm.response.json();\r",
+							"\r",
+							"if (json.token) {\r",
+							"  pm.environment.set(\"token\", json.token);\r",
+							"}\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"shan@test.com\",\r\n  \"password\": \"shan@123\"\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload API",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Reconciliation API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2I0YTBkNzk1ZjMyMGU4MGQ5NmY4MyIsImlhdCI6MTc2OTk2ODE2NywiZXhwIjoxNzcwMDU0NTY3fQ.Re-TLzi6DQi3YdXhAyBYNEWeTqvet5uxdNBPCsOHzbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/reconciliation/run",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"reconciliation",
+						"run"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(A) Get reconciliation results API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2I0YTBkNzk1ZjMyMGU4MGQ5NmY4MyIsImlhdCI6MTc2OTk2ODE2NywiZXhwIjoxNzcwMDU0NTY3fQ.Re-TLzi6DQi3YdXhAyBYNEWeTqvet5uxdNBPCsOHzbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/results/results",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"results",
+						"results"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Results summary API",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2I0YTBkNzk1ZjMyMGU4MGQ5NmY4MyIsImlhdCI6MTc2OTk2ODE2NywiZXhwIjoxNzcwMDU0NTY3fQ.Re-TLzi6DQi3YdXhAyBYNEWeTqvet5uxdNBPCsOHzbU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/dashboard/summary?status=unmatched?uploadedBy=697b4a0d795f320e80d96f83?fromDate=2026-01-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dashboard",
+						"summary"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "unmatched?uploadedBy=697b4a0d795f320e80d96f83?fromDate=2026-01-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

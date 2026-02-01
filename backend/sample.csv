@@ -1,0 +1,6 @@
+transaction_id,amount,date,source
+TX1001,500,2024-01-01,bank
+TX1002,1200,2024-01-02,bank
+TX1003,750,2024-01-03,bank
+TX1004,300,2024-01-04,bank
+TX1005,950,2024-01-05,bank

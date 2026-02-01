@@ -1,0 +1,51 @@
+.timeline {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 30px;
+  border-left: 3px solid #ddd;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background: #3498db;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-action {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 6px;
+}
+
+.timeline-meta {
+  font-size: 13px;
+  color: #555;
+}
+
+.timeline-time {
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.no-audit {
+  font-style: italic;
+  color: #888;
+}

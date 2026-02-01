@@ -1,0 +1,5 @@
+transaction_id,amount,date,source
+TX1001,500,2024-01-01,internal
+TX1002,1300,2024-01-02,internal
+TX1003,750,2024-01-03,internal
+TX9999,400,2024-01-06,internal
