@@ -16,11 +16,14 @@ export default function Login() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        "http://smart-reconciliation-backend-6cpj.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        },
+      );
 
       const data = await res.json();
 
@@ -28,11 +31,9 @@ export default function Login() {
         throw new Error(data.message || "Login failed");
       }
 
-      // ✅ STORE AUTH DATA
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
 
-      // ✅ REDIRECT
       navigate("/dashboard", { replace: true });
     } catch (err) {
       setError(err.message);

@@ -1,14 +1,17 @@
 export const uploadPreview = async (file) => {
   const formData = new FormData();
-  formData.append("file", file); // 🔥 MUST be "file"
+  formData.append("file", file);
 
-  const res = await fetch("http://localhost:5000/api/upload", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+  const res = await fetch(
+    "http://smart-reconciliation-backend-6cpj.onrender.com/api/upload",
+    {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: formData,
     },
-    body: formData,
-  });
+  );
 
   if (!res.ok) {
     const err = await res.json();

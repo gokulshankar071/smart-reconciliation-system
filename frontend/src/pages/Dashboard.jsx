@@ -15,9 +15,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  /* ================= FETCH USERS ================= */
   useEffect(() => {
-    fetch("http://localhost:5000/api/users", {
+    fetch("http://smart-reconciliation-backend-6cpj.onrender.com/api/users", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -27,7 +26,6 @@ export default function Dashboard() {
       .catch(() => setUsers([]));
   }, []);
 
-  /* ================= FETCH DASHBOARD ================= */
   useEffect(() => {
     fetchDashboardData();
   }, [filters]);
@@ -40,7 +38,7 @@ export default function Dashboard() {
       const query = new URLSearchParams(filters).toString();
 
       const res = await fetch(
-        `http://localhost:5000/api/dashboard/summary?${query}`,
+        `http://smart-reconciliation-backend-6cpj.onrender.com/api/dashboard/summary?${query}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -74,7 +72,6 @@ export default function Dashboard() {
     <div className="dashboard">
       <h2>Reconciliation Dashboard</h2>
 
-      {/* ================= FILTERS ================= */}
       <div className="filters">
         <input
           type="date"
@@ -98,7 +95,6 @@ export default function Dashboard() {
           <option value="duplicate">Duplicate</option>
         </select>
 
-        {/* 🔥 FIXED UploadedBy FILTER */}
         <select
           value={filters.uploadedBy}
           onChange={(e) =>
@@ -114,7 +110,6 @@ export default function Dashboard() {
         </select>
       </div>
 
-      {/* ================= CARDS ================= */}
       <div className="cards">
         <Card title="Total Records" value={summary.total} />
         <Card title="Matched" value={summary.matched} />
@@ -123,7 +118,6 @@ export default function Dashboard() {
         <Card title="Accuracy" value={`${summary.accuracy}%`} />
       </div>
 
-      {/* ================= BAR CHART ================= */}
       <div className="chart">
         <div className="bar matched" style={{ height: `${summary.matched}%` }}>
           Matched

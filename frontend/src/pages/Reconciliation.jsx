@@ -10,11 +10,14 @@ export default function Reconciliation() {
   const [expandedId, setExpandedId] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/results/results", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
+    fetch(
+      "http://smart-reconciliation-backend-6cpj.onrender.com/api/results/results",
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       },
-    })
+    )
       .then((res) => res.json())
       .then((res) => {
         setData(res);
@@ -57,7 +60,6 @@ export default function Reconciliation() {
                 <tr key={row._id}>
                   <td>{row.transaction_id}</td>
 
-                  {/* BANK AMOUNT */}
                   <td
                     className={
                       isPartial && row.bankAmount !== row.internalAmount
@@ -80,7 +82,6 @@ export default function Reconciliation() {
                     )}
                   </td>
 
-                  {/* INTERNAL AMOUNT */}
                   <td
                     className={
                       isPartial && row.bankAmount !== row.internalAmount
@@ -103,14 +104,12 @@ export default function Reconciliation() {
                     )}
                   </td>
 
-                  {/* STATUS */}
                   <td>
                     <span className={`badge ${row.status.toLowerCase()}`}>
                       {row.status}
                     </span>
                   </td>
 
-                  {/* ACTIONS */}
                   <td>
                     {editingId === row._id ? (
                       <button
