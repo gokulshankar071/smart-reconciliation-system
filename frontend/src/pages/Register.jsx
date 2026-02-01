@@ -21,7 +21,7 @@ export default function Register() {
 
     try {
       const res = await fetch(
-        "http://smart-reconciliation-backend-6cpj.onrender.com/api/auth/register",
+        "https://smart-reconciliation-backend-6cpj.onrender.com/api/auth/register",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

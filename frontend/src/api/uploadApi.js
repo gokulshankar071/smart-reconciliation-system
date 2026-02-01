@@ -3,7 +3,7 @@ export const uploadPreview = async (file) => {
   formData.append("file", file);
 
   const res = await fetch(
-    "http://smart-reconciliation-backend-6cpj.onrender.com/api/upload",
+    "https://smart-reconciliation-backend-6cpj.onrender.com/api/upload",
     {
       method: "POST",
       headers: {

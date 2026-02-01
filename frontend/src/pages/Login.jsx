@@ -17,7 +17,7 @@ export default function Login() {
 
     try {
       const res = await fetch(
-        "http://smart-reconciliation-backend-6cpj.onrender.com/api/auth/login",
+        "https://smart-reconciliation-backend-6cpj.onrender.com/api/auth/login",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

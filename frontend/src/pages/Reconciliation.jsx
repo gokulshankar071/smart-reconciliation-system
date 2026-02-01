@@ -11,7 +11,7 @@ export default function Reconciliation() {
 
   useEffect(() => {
     fetch(
-      "http://smart-reconciliation-backend-6cpj.onrender.com/api/results/results",
+      "https://smart-reconciliation-backend-6cpj.onrender.com/api/results/results",
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

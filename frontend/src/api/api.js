@@ -1,7 +1,8 @@
 import axios from "axios";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 const api = axios.create({
-  baseURL: "http://smart-reconciliation-backend-6cpj.onrender.com/api",
+  baseURL: `https://smart-reconciliation-backend-6cpj.onrender.com/api`,
 });
 
 api.interceptors.request.use((config) => {

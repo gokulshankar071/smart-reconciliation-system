@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import "../styles/dashboard.css";
+const API = import.meta.env.VITE_API_BASE_URL;
 
 export default function Dashboard() {
   const [filters, setFilters] = useState({
@@ -16,7 +17,7 @@ export default function Dashboard() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("http://smart-reconciliation-backend-6cpj.onrender.com/api/users", {
+    fetch("https://smart-reconciliation-backend-6cpj.onrender.com/api/users", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -38,7 +39,7 @@ export default function Dashboard() {
       const query = new URLSearchParams(filters).toString();
 
       const res = await fetch(
-        `http://smart-reconciliation-backend-6cpj.onrender.com/api/dashboard/summary?${query}`,
+        `https://smart-reconciliation-backend-6cpj.onrender.com/api/dashboard/summary?${query}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
